@@ -1,7 +1,7 @@
 sudo: required
 services: docker
 before_install:
-  - docker build -t deepak12398/multi-cl -f ./client/Dockerfile.dev ./client
+  - docker build -t deepak/multi-cl -f ./client/Dockerfile.dev ./client
 script:
   - docker run -e CI=true deepak/multi-cl npm run test
 
