@@ -6,10 +6,10 @@ script:
   - docker run -e CI=true deepak/multi-cl npm run test
 
 after_success:
-  - docker build deepak/multi-client ./client
-  - docker build deepak/multi-nginx ./nginx
-  - docker build deepak/multi-server ./server
-  - docker build deepak/multi-worker ./worker
+  - docker build -t deepak/multi-client ./client
+  - docker build -t deepak/multi-nginx ./nginx
+  - docker build -t deepak/multi-server ./server
+  - docker build -t deepak/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push deepak/multi-client
   - docker push deepak/multi-nginx
